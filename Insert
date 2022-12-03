@@ -1,0 +1,9 @@
+<?php
+//Insert Datat
+$table = "wp_khdata"; 
+            // $wpdb->insert( $wpdb->$table_name , array( "name"=>'dddd', "city"=>'case22' ), array( '%s', '%s' ));
+            $data = array('name' =>  $name);
+            $format = array('%s');
+            $wpdb->insert($table,$data,$format);
+            $my_id = $wpdb->insert_id;
+            
