@@ -1,5 +1,6 @@
 ## WPDB
 
+```php
 public static function create_db() {
 
     global $wpdb;
@@ -36,3 +37,5 @@ public static function create_db() {
     }
 
 }
+
+```
