@@ -1,3 +1,5 @@
+```php
+
 <?php
 
 /**********************************************
@@ -140,3 +142,5 @@ public function use_prepare_db_query() {
     return $wpdb->query( $wpdb->prepare( $sql, 7, 15, 'static' ) );
 
 }
+
+```
