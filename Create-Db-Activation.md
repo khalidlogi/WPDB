@@ -1,5 +1,8 @@
 # WPDB
 
+```php
+  register_activation_hook(__FILE__, array($this, 'create_custom_table_on_activation'));
+  register_deactivation_hook(__FILE__, array($this, 'delete_table_plugin'));
 public static function create_db() {
 
     global $wpdb;
@@ -36,3 +39,21 @@ public static function create_db() {
     }
 
 }
+```
+
+### delete table on deactivation
+```php 
+ public function delete_table_plugin()
+        {
+            global $wpdb;
+            // Get the table name
+            $table_name = $wpdb->prefix . 'kh_contact2';
+
+            // Check if the table exists
+            if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") !== $table_name) {
+                return;
+            }
+
+            // Drop the table
+            $wpdb->query("DROP TABLE $table_name");
+        }
